@@ -8,10 +8,14 @@ var Cart = function(items) {
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+   
+  // var newCart=CartItem()
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  localStorage.setItem('cartProducts',JSON.stringify(CartItem));
+
 };
 
 Cart.prototype.removeItem = function(item) {
@@ -31,6 +35,7 @@ var Product = function(filePath, name) {
   Product.allProducts.push(this);
 };
 Product.allProducts = [];
+generateCatalog();
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
@@ -56,4 +61,4 @@ function generateCatalog() {
 }
 
 // Initialize the app by creating the big list of products with images and names
-generateCatalog();
+localStorage.setItem('allproductscart',JSON.stringify(Product.allProducts));
